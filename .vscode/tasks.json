@@ -1,0 +1,62 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "odin: prepare build directory",
+            "type": "process",
+            "command": "/bin/mkdir",
+            "args": [
+                "-p",
+                "${workspaceFolder}/2.1 Odin (Windows & MacOS)/build"
+            ],
+            "windows": {
+                "command": "powershell.exe",
+                "args": [
+                    "-NoProfile",
+                    "-NonInteractive",
+                    "-Command",
+                    "New-Item -ItemType Directory -Force -Path '${workspaceFolder}/2.1 Odin (Windows & MacOS)/build' | Out-Null"
+                ]
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "odin: build debug",
+            "type": "process",
+            "command": "odin",
+            "args": [
+                "build",
+                ".",
+                "-debug",
+                "-vet",
+                "-vet-cast",
+                "-vet-style",
+                "-vet-tabs",
+                "-warnings-as-errors",
+                "-out:../build/caverace2"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/2.1 Odin (Windows & MacOS)/source"
+            },
+            "windows": {
+                "args": [
+                    "build",
+                    ".",
+                    "-debug",
+                    "-vet",
+                    "-vet-cast",
+                    "-vet-style",
+                    "-vet-tabs",
+                    "-warnings-as-errors",
+                    "-out:../build/caverace2.exe"
+                ]
+            },
+            "dependsOn": "odin: prepare build directory",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        }
+    ]
+}

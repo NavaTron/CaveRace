@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug CaveRace",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceFolder}/2.1 Odin (Windows & MacOS)/build/caverace2",
+            "cwd": "${workspaceFolder}/2.1 Odin (Windows & MacOS)/source",
+            "preLaunchTask": "odin: build debug",
+            "terminal": "integrated",
+            "stopOnEntry": false,
+            "windows": {
+                "program": "${workspaceFolder}/2.1 Odin (Windows & MacOS)/build/caverace2.exe"
+            }
+        }
+    ]
+}

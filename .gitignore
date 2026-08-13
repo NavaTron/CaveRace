@@ -1,0 +1,8 @@
+# Generated files
+.DS_Store
+Thumbs.db
+caverace.res
+/1.5 Odin (Windows & MacOS)/build/
+/1.5 Odin (Windows & MacOS)/dist
+/2.1 Odin (Windows & MacOS)/build/
+/2.1 Odin (Windows & MacOS)/dist

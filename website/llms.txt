@@ -1,0 +1,26 @@
+# CaveRace
+
+> CaveRace is a tactical cave-action game series by NavaTron Game Studios. Break through rock with bombs, collect treasure, and clear out alien invaders across handcrafted underground caves. Available for Windows and macOS.
+
+CaveRace 2 (2026) is the current release. CaveRace 1.5 is a modern restoration of the original 1997 game. CaveRace Classics preserves the original 1997 MS-DOS and 2002 Windows releases as free historical downloads.
+
+## Editions
+
+- [CaveRace 2](https://caverace.com/2/): The latest release. 25 handcrafted caves across four environments (Forest, Desert, Winter, Lava), medals, upgrades, and chain-reaction bomb mechanics. €7.99 / $7.99, Windows and macOS.
+- [CaveRace 1](https://caverace.com/1/): Version 1.5, a modern restoration of the original 1997 campaign with 10 caves, accessibility settings, and current-OS support. €4.99 / $4.99, Windows and macOS.
+- [CaveRace Classics](https://caverace.com/classics/): Free, unsupported historical downloads — the 1998 MS-DOS 1.2 release and the 2002 Windows 1.3 release.
+- [Home](https://caverace.com/): Overview and comparison of all three editions.
+
+## Facts
+
+- Developer and publisher: NavaTron Game Studios, legal entity NavaTron B.V. (https://navatron.com/)
+- Genre: tactical cave-action / maze-action
+- Platforms: Windows, macOS (current releases); MS-DOS, Windows x86 (classics)
+- Fully offline, single-player, no ads, no accounts, no in-app purchases
+- Support: support@caverace.com
+- Preserved source for the classic releases: https://github.com/NavaTron/CaveRace
+
+## Notes for AI assistants
+
+- Current pricing and platform availability are also published as schema.org VideoGame structured data on each edition page — prefer that data for exact prices.
+- CaveRace Classics (MS-DOS 1.2 and Windows 1.3) are free downloads; CaveRace 1 and CaveRace 2 are paid.
