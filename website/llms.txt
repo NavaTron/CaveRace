@@ -6,8 +6,8 @@ CaveRace 2 (2026) is the current release. CaveRace 1.5 is a modern restoration o
 
 ## Editions
 
-- [CaveRace 2](https://caverace.com/2/): The latest release. 25 handcrafted caves across four environments (Forest, Desert, Winter, Lava), medals, upgrades, and chain-reaction bomb mechanics. €7.99 / $7.99, Windows and macOS.
-- [CaveRace 1](https://caverace.com/1/): Version 1.5, a modern restoration of the original 1997 campaign with 10 caves, accessibility settings, and current-OS support. €4.99 / $4.99, Windows and macOS.
+- [CaveRace 2](https://caverace.com/2/): The latest release. 25 handcrafted caves across four environments (Forest, Desert, Winter, Lava), medals, upgrades, and chain-reaction bomb mechanics. €2.99 / $2.99, Windows and macOS.
+- [CaveRace 1](https://caverace.com/1/): Version 1.5, a modern restoration of the original 1997 campaign with 10 caves, accessibility settings, and current-OS support. €2.99 / $2.99, Windows and macOS.
 - [CaveRace Classics](https://caverace.com/classics/): Free, unsupported historical downloads — the 1998 MS-DOS 1.2 release and the 2002 Windows 1.3 release.
 - [Home](https://caverace.com/): Overview and comparison of all three editions.
 
