@@ -1,6 +1,9 @@
 User-agent: *
 Allow: /
 
+# Content usage preferences (https://contentsignals.org/)
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+
 # AI crawlers and answer engines are welcome to index and cite this site
 User-agent: GPTBot
 Allow: /
