@@ -17,7 +17,7 @@ CaveRace 2 (2026) is the current release. CaveRace 1.5 is a modern restoration o
 - Genre: tactical cave-action / maze-action
 - Platforms: Windows, macOS (current releases); MS-DOS, Windows x86 (classics)
 - Fully offline, single-player, no ads, no accounts, no in-app purchases
-- Support: support@caverace.com
+- Support: https://navatron.com/support/
 - Preserved source for the classic releases: https://github.com/NavaTron/CaveRace
 
 ## Notes for AI assistants
