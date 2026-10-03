@@ -56,13 +56,13 @@ jobs:
       cancel-in-progress: false
     env:
       AZURE_CLIENT_ID: ${{ vars.AZURE_CLIENT_ID }}
-      AZURE_TENANT_ID: ${{ vars.AZURE_TENANT_ID }}
-      AZURE_SUBSCRIPTION_ID: ${{ vars.AZURE_SUBSCRIPTION_ID }}
-      AZURE_FRONT_DOOR_DOMAINS: ${{ vars.AZURE_FRONT_DOOR_DOMAINS }}
-      AZURE_STORAGE_ACCOUNT: ${{ vars.AZURE_STORAGE_ACCOUNT }}
-      AZURE_FRONT_DOOR_RESOURCE_GROUP: ${{ vars.AZURE_FRONT_DOOR_RESOURCE_GROUP }}
-      AZURE_FRONT_DOOR_PROFILE: ${{ vars.AZURE_FRONT_DOOR_PROFILE }}
-      AZURE_FRONT_DOOR_ENDPOINT: ${{ vars.AZURE_FRONT_DOOR_ENDPOINT }}
+      AZURE_TENANT_ID: '9be79373-29bb-4b8a-a999-495ad397f5ae'
+      AZURE_SUBSCRIPTION_ID: 'e42fceff-ea17-403e-96cd-3337df3043b1'
+      AZURE_FRONT_DOOR_DOMAINS: 'caverace.com'
+      AZURE_STORAGE_ACCOUNT: 'caverace'
+      AZURE_FRONT_DOOR_RESOURCE_GROUP: 'NavaTron'
+      AZURE_FRONT_DOOR_PROFILE: 'navatron'
+      AZURE_FRONT_DOOR_ENDPOINT: 'caverace'
     steps:
       - name: Check for a newer main commit
         id: current
@@ -103,8 +103,8 @@ jobs:
         uses: Azure/login@7ddb5af1ef8758cf1353cf3b42f940aee27ba21c # v3.0.2
         with:
           client-id: ${{ vars.AZURE_CLIENT_ID }}
-          tenant-id: ${{ vars.AZURE_TENANT_ID }}
-          subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+          tenant-id: ${{ env.AZURE_TENANT_ID }}
+          subscription-id: ${{ env.AZURE_SUBSCRIPTION_ID }}
 
       - name: Upload website
         if: steps.current.outputs.deploy == 'true'

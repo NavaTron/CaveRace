@@ -8,46 +8,59 @@ Changes to `website/**`, the checker, or the workflow on `main` trigger checks
 and production publication. Pull requests run checks only. Select **Run workflow**
 on `main` to redeploy. Runs from other branches cannot deploy.
 
-## Configure Azure access before the first deployment
+## Confirmed Azure target
 
-Use the same Azure Storage static website and Azure Front Door pattern as
-NavaTron/Website, with the resources that actually serve caverace.com.
-Do not reuse NavaTron's storage account value unless it is the intended CaveRace
-origin: deployment overwrites matching files in the target `$web` container.
+| Setting | Value |
+| --- | --- |
+| Subscription | `e42fceff-ea17-403e-96cd-3337df3043b1` |
+| Tenant | `9be79373-29bb-4b8a-a999-495ad397f5ae` |
+| Storage account | `caverace` |
+| Front Door resource group | `NavaTron` |
+| Front Door profile | `navatron` (shared with the studio website) |
+| Front Door endpoint | `caverace` |
+| Endpoint hostname | `caverace-fthrcjdte0hvaja5.z01.azurefd.net` |
+| Cache purge domain | `caverace.com` |
 
-Create or select an Azure managed identity or application, then add a GitHub
-federated credential with:
+These non-secret target identifiers are explicit in the workflow. It uploads only
+to `caverace/$web` and purges the `caverace` endpoint. The NavaTron website's
+storage account and endpoint are separate.
+
+## One-time identity setup
+
+In a checkout of this branch, sign in with Azure CLI and GitHub CLI:
+
+```bash
+az login
+gh auth login
+bash scripts/setup_website_azure.sh
+```
+
+The signed-in Azure user needs permission to create managed identities, federated
+credentials, custom roles, and role assignments. GitHub access must permit setting
+repository Actions variables.
+
+The script resolves the actual storage resource group, checks the target endpoint,
+creates or reuses `github-caverace-website` in `NavaTron`, and creates a federated
+credential with:
 
 - Issuer: `https://token.actions.githubusercontent.com`
 - Audience: `api://AzureADTokenExchange`
 - Subject: `repo:NavaTron/CaveRace:ref:refs/heads/main`
 
-Grant **Storage Blob Data Contributor** at the CaveRace `$web` container scope.
-For Front Door, grant endpoint read and purge permissions at the intended endpoint
-scope, using the same custom role pattern as NavaTron/Website:
-`Microsoft.Cdn/profiles/afdendpoints/read` and
-`Microsoft.Cdn/profiles/afdendpoints/purge/action`.
+It grants **Storage Blob Data Contributor** only on CaveRace's `$web` container
+and the [custom cache-purger role](../.github/azure-front-door-purge-role.json)
+only on the CaveRace Front Door endpoint. The role allows endpoint read and purge,
+with no other actions.
 
-Configure repository **Settings → Secrets and variables → Actions → Variables**:
+Finally, it sets the single required repository Actions variable,
+`AZURE_CLIENT_ID`, to the managed identity's client ID. No storage account keys or
+client secrets are used. The script can be rerun and preserves existing matching
+role assignments.
 
-| Variable | Required value |
-| --- | --- |
-| `AZURE_CLIENT_ID` | Deployment identity's client ID |
-| `AZURE_TENANT_ID` | Identity's tenant ID |
-| `AZURE_SUBSCRIPTION_ID` | Target Azure subscription ID |
-| `AZURE_STORAGE_ACCOUNT` | Storage account serving CaveRace |
-| `AZURE_FRONT_DOOR_RESOURCE_GROUP` | Front Door resource group |
-| `AZURE_FRONT_DOOR_PROFILE` | Front Door profile name |
-| `AZURE_FRONT_DOOR_ENDPOINT` | Front Door endpoint name |
-| `AZURE_FRONT_DOOR_DOMAINS` | Space-separated domains on that endpoint to purge; include `caverace.com` |
-
-These are identifiers, not credentials. No storage keys or client secrets are
-required. This repository change does not create Azure resources, grant roles,
-or configure repository variables.
-
-Enable static website hosting on the target storage account, with `index.html`
-as the index document and `404.html` as the error document. Confirm the Front Door
-origin, custom domain, and TLS configuration already serve that account.
+The script does not upload content or alter domains, routes, hosting settings,
+or the NavaTron site's identity. Static website hosting must already use
+`index.html` and `404.html`; the caverace.com Front Door route must point to
+the CaveRace storage origin. Azure access setup has not been executed by Codex.
 
 ## Validation and publication
 
