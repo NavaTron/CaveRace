@@ -1,0 +1,15 @@
+{
+  "Name": "CaveRace Website Front Door Cache Purger",
+  "IsCustom": true,
+  "Description": "Allows the CaveRace website deployment workflow to read and purge its Front Door endpoint.",
+  "Actions": [
+    "Microsoft.Cdn/profiles/afdendpoints/read",
+    "Microsoft.Cdn/profiles/afdendpoints/purge/action"
+  ],
+  "NotActions": [],
+  "DataActions": [],
+  "NotDataActions": [],
+  "AssignableScopes": [
+    "/subscriptions/e42fceff-ea17-403e-96cd-3337df3043b1/resourceGroups/NavaTron"
+  ]
+}
