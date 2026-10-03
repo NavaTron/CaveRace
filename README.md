@@ -44,6 +44,12 @@ Downloads, screenshots, and more background are available on the
 | --- | --- | --- |
 | ![Story panel](images/intro.png) | ![Main menu](images/menu.png) | ![Controls screen](images/controls.png) |
 
+## Website deployment
+
+The static `website/` directory is published to Azure through GitHub Actions.
+See the [deployment guide](docs/website-deployment.md) for Azure access,
+repository variables, validation, and recovery.
+
 ## How to play
 
 Clear a cave by destroying every alien. Along the way, collect gold, diamonds,
